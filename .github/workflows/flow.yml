@@ -40,9 +40,9 @@ jobs:
       - name: Run Tests
         run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci cluecumber-report:reporting || true
 
-      - name: Archive Test Results
+      - name: Arquivar resultados
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: test-results
-          path: target/surefire-reports/*.xml
+          name: report-execution
+          path: "**/formated-report/"
